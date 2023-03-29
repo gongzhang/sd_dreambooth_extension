@@ -627,8 +627,8 @@ def main(args: DreamboothConfig, use_txt2img: bool = True) -> TrainResult:
 
                 s_pipeline = DiffusionPipeline.from_pretrained(
                     args.pretrained_model_name_or_path,
-                    unet=accelerator.unwrap_model(unet, keep_fp32_wrapper=True),
-                    text_encoder=accelerator.unwrap_model(text_encoder, keep_fp32_wrapper=True),
+                    unet=accelerator.unwrap_model(unet),
+                    text_encoder=accelerator.unwrap_model(text_encoder),
                     vae=vae,
                     scheduler=scheduler,
                     torch_dtype=weight_dtype,
